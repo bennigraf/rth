@@ -26,7 +26,7 @@
 						array('escape'=>false, 'title'=>'Freiwillig')).' ';
 			echo $html->link(
 						$html->image('icons/text.png', array('alt'=>'Umbenennen')),
-						'/courses/rename/'.$course['id'],
+						'/courses/edit/'.$course['id'].'/'.$degree['Degree']['id'],
 						array('escape'=>false, 'title'=>'Umbenennen')).' ';
 			echo $html->link(
 						$html->image('icons/remove.png', array('alt'=>'Löschen')),

@@ -4,6 +4,36 @@ class CoursesController extends AppController {
 	var $name = 'Courses';
 	
 	
+	function edit($id = null, $degreeid = false) {
+		if ($id==null && empty($this->data)) {
+			$this->redirect('/');
+		}
+		
+		if (!empty($this->data)) {
+			if ($this->Course->save($this->data)) {
+				if (!empty($this->data['Course']['degreeid'])) {
+					$this->redirect('/degrees/edit/'.$this->data['Course']['degreeid']);
+				} else {
+					$this->redirect('/');
+				}
+			}
+		}
+		
+		$course = $this->Course->find('first', array(
+			'conditions'=>array('Course.id'=>$id),
+			// 'contain'=>array(
+			// 	'Degree'
+			// )
+		));
+		
+		if($degreeid) {
+			$this->set(compact('degreeid'));
+		}
+		$referer = $this->referer();
+		$this->set(compact('course', 'referer'));
+		
+	}
+	
 	function addfordegree($degreeid) {
 		
 		if (!empty($this->data)) {
