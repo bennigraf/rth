@@ -5,24 +5,25 @@ class User extends AppModel {
 		'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'message' => 'Gib bitte einen Benutzernamen an.'
 			),
+			'unique' => array(
+				'rule' => 'isUnique',
+				'message' => 'Dieser Benutzername ist bereits vergeben.'
+			)
 		),
 		'password' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'message' => 'Gib bitte ein Passwort an.'
 			),
 		),
 	);
+	
+	var $hasMany = array(
+		'Participation'
+	);
+	
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $hasAndBelongsToMany = array(

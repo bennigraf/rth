@@ -15,6 +15,9 @@ class Degree extends AppModel {
 			),
 		),
 	);
+	
+
+
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $hasAndBelongsToMany = array(
@@ -24,6 +27,22 @@ class Degree extends AppModel {
 			'foreignKey' => 'degree_id',
 			'associationForeignKey' => 'user_id',
 			'unique' => true
+		),		
+		'Course' => array(
+			'className' => 'Course',
+			'joinTable' => 'courses_degrees',
+			'foreignKey' => 'degree_id',
+			'associationForeignKey' => 'course_id',
+			'unique' => true,
+			'order' => 'Course.name ASC'
+		),
+		'Mustcourse' => array(
+			'className' => 'Mustcourse',
+			'joinTable' => 'courses_degrees',
+			'foreignKey' => 'degree_id',
+			'associationForeignKey' => 'course_id',
+			'unique' => true,
+			'order' => 'Mustcourse.name ASC'
 		)
 	);
 
