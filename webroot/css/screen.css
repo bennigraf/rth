@@ -35,8 +35,6 @@ body {
 #content {
 	padding: 15px 0 0 0;
 	background-color: #fff;
-	background: -moz-linear-gradient(top, #444 0%, #fff 5px); /* firefox */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#444), color-stop(5%,#fff)); /* webkit */
 	clear: both;
 }
 
@@ -55,7 +53,7 @@ body {
 
 /** containers **/
 div.view {
-	min-width: 900px;
+	min-width: 950px;
 }
 div.form,
 div.index,
@@ -94,8 +92,7 @@ div.actions {
 }
 
 input[type=submit],
-#content div.actions ul li a,
-td.actions a {
+#content div.actions ul li a {
 	font-weight:normal;
 	padding: 4px 8px;
 	background:#e6e49f;
@@ -111,8 +108,7 @@ td.actions a {
 	min-width: 0;
 }
 input[type=submit]:hover,
-#content div.actions ul li a:hover,
-td.actions a:hover {
+#content div.actions ul li a:hover {
 	background: #f0f09a;
 	background: -webkit-gradient(linear, left top, left bottom, from(#f7f7e1), to(#eeeca9));
 }
@@ -156,7 +152,8 @@ h4 {
 
 div#content p {
 	font-family: Georgia, serif;
-	padding: 3px 0;
+	padding: 5px 0;
+	line-height: 130%;
 }
 
 #content a {
@@ -200,6 +197,101 @@ div#content p {
 	height: 16px;
 	width: 16px;
 }
+
+
+/* ----------------------------------------------------- Some more specific stuff */
+
+div.degreecols {
+	width: 900px;
+	clear: both;
+}
+div.degreecol {
+	float: left;
+	width: 280px;
+	margin: 0 20px 20px 0;
+}
+
+#content div.actions p {
+	font-size: 13px;
+	line-height: 120%;
+	padding: 5px;
+	color: #777;
+	font-style: italic;
+}
+#content div.actions p.important {
+	color: #f00;
+}
+
+
+#content ul.timecolumn {
+	width: 130px;
+	float: left;
+/*	padding: 0 10px 0 0;*/
+	margin-right: 10px;
+	border-right: 1px dotted #999;
+	
+}
+#content ul.timecolumn.legend {
+	width: 40px;
+	text-align: right;
+}
+#content ul.timecolumn.legend.right {
+	text-align: left;
+	border: none;
+	border-left: 1px dotted #999;
+	padding-left: 2px;
+}
+#content ul.timecolumn li {
+	list-style: none;
+	margin: 0;
+	padding-right: 2px;
+	font-size: 12px;
+	line-height: 12px;
+	height: 12px;
+	border-bottom: 1px dotted #999;
+}
+#content ul.timecolumn li.header {
+	text-align: right;
+	font-style: italic;
+}
+#content ul.timecolumn li .date {
+/*	border: 1px solid red;*/
+/*	writing-mode: tb-rl;*/
+	padding: 0;
+	margin: 0 2px 0 0;
+	border: 1px solid #000;
+	background-color: #AFFF9F;
+	position: relative;
+	top: -3px;
+	width: 30px;
+	height: 112px;
+	overflow: hidden;
+/*	float: left;*/
+}
+#content ul.timecolumn li .date:hover {
+	overflow: visible;
+}
+#content ul.timecolumn li .date.lvl0 { left: 0; }
+#content ul.timecolumn li .date.lvl1 { left: 33px; }
+#content ul.timecolumn li .date.lvl2 { left: 66px; }
+#content ul.timecolumn li .date.lvl3 { left: 99px; }
+#content ul.timecolumn li .date.lvl4 { left: 132px; }
+#content ul.timecolumn li .date div {
+/*	border: 1px solid red;*/
+	width: 400px;
+	padding-left: 400px;
+	position: relative;
+	left: -392px;
+	top: -3px;
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+}
+#content ul.timecolumn li .date div span {
+	background-color: #AFFF9F;
+	padding: 0 3px 0 0;
+}
+
 
 /* ----------------------------------------------------- Forms! (Argh...) */
 
@@ -306,18 +398,6 @@ form .submit input[type=submit]:hover {
 	background:#4ca83d;
 	background: -webkit-gradient(linear, left top, left bottom, from(#85e573), to(#4ca83d));
 	background-image: -moz-linear-gradient(top, #85e573, #4ca83d);
-}
-
-/* ----------------------------------------------------- Some more specific stuff */
-
-div.degreecols {
-	width: 900px;
-	clear: both;
-}
-div.degreecol {
-	float: left;
-	width: 280px;
-	margin: 0 20px 20px 0;
 }
 
 

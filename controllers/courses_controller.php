@@ -10,6 +10,27 @@ class CoursesController extends AppController {
 		}
 		
 		if (!empty($this->data)) {
+			$nodate = false;
+			if ($this->data['Course']['hasdate']==1) {
+				// check if all fields are filled - validation would be smarter here...
+				// hey, first comment! 2010-10-19 11:36p
+				if (!(isset($this->data['Course']['weekday']) &&
+						isset($this->data['Course']['time']) &&
+						isset($this->data['Course']['duration'])
+				)) {
+					$nodate = true;
+				}
+				
+			} else {
+				$nodate = true;
+			}
+			
+			if ($nodate) {				
+				$this->data['Course']['weekday'] = null;
+				$this->data['Course']['time'] = null;
+				$this->data['Course']['duration'] = null;
+			}
+			
 			if ($this->Course->save($this->data)) {
 				if (!empty($this->data['Course']['degreeid'])) {
 					$this->redirect('/degrees/edit/'.$this->data['Course']['degreeid']);
@@ -26,6 +47,11 @@ class CoursesController extends AppController {
 			// )
 		));
 		
+		if(isset($course['Course']['weekday']) && isset($course['Course']['time']) && isset($course['Course']['duration'])) {
+			$course['Course']['hasdate'] = true;
+		} else {
+			$course['Course']['hasdate'] = false;
+		}
 		if($degreeid) {
 			$this->set(compact('degreeid'));
 		}

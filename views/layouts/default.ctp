@@ -26,6 +26,7 @@
 	<?php echo $this->element('sql_dump'); ?>
 
 	<?php echo $javascript->link('jquery-1.4.3.min'); ?>
+	<?php echo $javascript->link('jquery.livequery'); ?>
 	<?php echo $javascript->link('domscript'); ?>
 	<script type="text/javascript">
 		// jQuery(dom_init);

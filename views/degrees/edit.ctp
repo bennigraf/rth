@@ -3,6 +3,9 @@
 		<li><?php echo $html->link('Zurück zur Übersicht', '/users/view') ?></li>
 		<!-- <li><?php echo $this->Html->link('Löschen', array('action' => 'delete') ); ?></li> -->
 	</ul>
+	<p>
+		Achtung: Alle hier gemachten Änderungen gelten für <strong>alle</strong> Benutzer! Not alone, you are. Act wise you must, young master...
+	</p>
 </div>
 
 <div class="view form">
@@ -25,13 +28,13 @@
 						'/courses/freewilly/'.$course['id'].'/'.$degree['Degree']['id'],
 						array('escape'=>false, 'title'=>'Freiwillig')).' ';
 			echo $html->link(
-						$html->image('icons/text.png', array('alt'=>'Umbenennen')),
+						$html->image('icons/edit.png', array('alt'=>'Bearbeiten')),
 						'/courses/edit/'.$course['id'].'/'.$degree['Degree']['id'],
 						array('escape'=>false, 'title'=>'Umbenennen')).' ';
 			echo $html->link(
 						$html->image('icons/remove.png', array('alt'=>'Löschen')),
 						'/degrees/delcourse/'.$degree['Degree']['id'].'/'.$course['id'],
-						array('escape'=>false, 'title'=>'Löschen'));
+						array('escape'=>false, 'title'=>'Aus dem Studiengang werfen'));
 			echo '</span>';
 			echo $course['name'];
 			echo '</li>';
@@ -53,13 +56,13 @@
 						'/courses/makemust/'.$course['id'].'/'.$degree['Degree']['id'],
 						array('escape'=>false, 'title'=>'Pflicht')).' ';
 			echo $html->link(
-						$html->image('icons/text.png', array('alt'=>'Umbenennen')),
-						'/courses/rename/'.$course['id'],
+						$html->image('icons/edit.png', array('alt'=>'Bearbeiten')),
+						'/courses/edit/'.$course['id'].'/'.$degree['Degree']['id'],
 						array('escape'=>false, 'title'=>'Umbenennen')).' ';
 			echo $html->link(
 						$html->image('icons/remove.png', array('alt'=>'Löschen')),
 						'/degrees/delcourse/'.$degree['Degree']['id'].'/'.$course['id'],
-						array('escape'=>false, 'title'=>'Löschen'));
+						array('escape'=>false, 'title'=>'Aus dem Studiengang werfen'));
 			echo '</span>';
 			echo $course['name'];
 			echo '</li>';

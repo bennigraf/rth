@@ -1,8 +1,15 @@
 <div class="actions">
 	<ul>
 		<li><?php echo $html->link('Studiengänge wählen', array('action'=>'setup', $user['User']['id'])) ?></li>
+		<li><?php echo $html->link('Stundenplan', array('action'=>'timetable', $user['User']['id'])) ?></li>
 		<li><?php echo $html->link('Abmelden', array('action'=>'logout')) ?></li>
 	</ul>
+	<p class="important">
+		Achtung: Alle angaben ohne Gewähr oder Vollkasko-Versicherung! <?php echo $html->link('...mehr', '/pages/about') ?>
+	</p>
+	<p>
+		Good news, everyone! If you like this service, feel free to donate beer to the <a href="mailto:bennigraf@gmail.com?Subject=I want to give beer">Benni Graf Foundation</a>.
+	</p>
 </div>
 
 <div class="users view">
@@ -85,16 +92,3 @@
 		endforeach; ?>
 	</div>
 </div>
-
-
-<!--
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit User', true), array('action' => 'edit', $user['User']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Delete User', true), array('action' => 'delete', $user['User']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $user['User']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Users', true), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User', true), array('action' => 'add')); ?> </li>
-	</ul>
-</div>
--->
